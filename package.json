@@ -1,0 +1,31 @@
+{
+  "name": "vite-css-cloak",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "license": "MIT",
+  "description": "This plugin provides a layer of security for your styles by obfuscating CSS classnames and reducing the size of the output.",
+  "devDependencies": {
+    "tsc": "^2.0.4",
+    "tsx": "^4.2.0",
+    "typescript": "^5.3.2"
+  },
+  "scripts": {
+    "patch-cjs": "tsx ./patch.ts",
+    "build": "tsc",
+    "postbuild": "$npm_execpath run patch-cjs"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.cjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "dependencies": {
+    "@types/node": "^20.9.3"
+  },
+  "files": [
+    "dist",
+    "package.json",
+    "README.md"
+  ]
+}
